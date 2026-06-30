@@ -75,7 +75,8 @@ export default function Navbar() {
 
         {/* CTA */}
         <a
-          href="#contact"
+          href="/portfolio/cv.pdf"
+          download="CV_Jose_Angel_Ceballos.pdf"
           className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
           style={{
             background: 'rgba(59,130,246,0.1)',
