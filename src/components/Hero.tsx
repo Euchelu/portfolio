@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useReducedMotion } from 'framer-motion'
 import { motion } from 'framer-motion'
 import { ArrowDown, Mail } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from './SocialIcons'
+import { useTypingEffect } from '../hooks/useTypingEffect'
 
 const roles = [
   'Backend Developer',
@@ -10,43 +11,17 @@ const roles = [
   'QA / Testing Specialist',
 ]
 
-function useTypingEffect(words: string[], speed = 80, pause = 2000) {
-  const [display, setDisplay] = useState('')
-  const [wordIdx, setWordIdx] = useState(0)
-  const [charIdx, setCharIdx] = useState(0)
-  const [deleting, setDeleting] = useState(false)
-
-  useEffect(() => {
-    const current = words[wordIdx]
-    const delay = deleting
-      ? speed / 2
-      : charIdx === current.length
-      ? pause
-      : speed
-
-    const timer = setTimeout(() => {
-      if (!deleting && charIdx < current.length) {
-        setDisplay(current.slice(0, charIdx + 1))
-        setCharIdx((c) => c + 1)
-      } else if (!deleting && charIdx === current.length) {
-        setDeleting(true)
-      } else if (deleting && charIdx > 0) {
-        setDisplay(current.slice(0, charIdx - 1))
-        setCharIdx((c) => c - 1)
-      } else {
-        setDeleting(false)
-        setWordIdx((w) => (w + 1) % words.length)
-      }
-    }, delay)
-
-    return () => clearTimeout(timer)
-  }, [charIdx, deleting, wordIdx, words, speed, pause])
-
-  return display
-}
-
 export default function Hero() {
+  const shouldReduceMotion = useReducedMotion()
   const typed = useTypingEffect(roles)
+
+  const fadeUp = shouldReduceMotion
+    ? {}
+    : { initial: { opacity: 0, y: 30 }, animate: { opacity: 1, y: 0 } }
+
+  const fadeIn = shouldReduceMotion
+    ? {}
+    : { initial: { opacity: 0 }, animate: { opacity: 1 } }
 
   return (
     <section
@@ -76,8 +51,7 @@ export default function Hero() {
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         {/* Badge estado */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          {...fadeIn}
           transition={{ duration: 0.5 }}
           className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono mb-8"
           style={{
@@ -95,8 +69,7 @@ export default function Hero() {
 
         {/* Nombre */}
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          {...fadeUp}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-5xl md:text-7xl font-bold tracking-tight mb-4"
           style={{ color: '#e2e8f0' }}
@@ -116,8 +89,7 @@ export default function Hero() {
 
         {/* Typing role */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          {...fadeIn}
           transition={{ delay: 0.3 }}
           className="h-10 flex items-center justify-center mb-6"
         >
@@ -131,8 +103,7 @@ export default function Hero() {
 
         {/* Descripción */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          {...fadeUp}
           transition={{ delay: 0.4 }}
           className="text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
           style={{ color: '#64748b' }}
@@ -144,8 +115,7 @@ export default function Hero() {
 
         {/* CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          {...fadeUp}
           transition={{ delay: 0.5 }}
           className="flex flex-wrap items-center justify-center gap-4 mb-12"
         >
@@ -175,8 +145,7 @@ export default function Hero() {
 
         {/* Social links */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          {...fadeIn}
           transition={{ delay: 0.6 }}
           className="flex items-center justify-center gap-5"
         >
@@ -217,15 +186,14 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        {...fadeIn}
         transition={{ delay: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         style={{ color: '#334155' }}
       >
         <span className="text-xs font-mono tracking-widest uppercase">scroll</span>
         <motion.div
-          animate={{ y: [0, 6, 0] }}
+          animate={shouldReduceMotion ? {} : { y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
         >
           <ArrowDown size={16} />
