@@ -1,24 +1,26 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-
-const links = [
-  { label: 'Sobre mí', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Experiencia', href: '#experience' },
-  { label: 'Proyectos', href: '#projects' },
-  { label: 'Contacto', href: '#contact' },
-]
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const { tr, lang, toggleLang } = useLanguage()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  const links = [
+    { label: tr.nav.about, href: '#about' },
+    { label: tr.nav.skills, href: '#skills' },
+    { label: tr.nav.experience, href: '#experience' },
+    { label: tr.nav.projects, href: '#projects' },
+    { label: tr.nav.contact, href: '#contact' },
+  ]
 
   return (
     <motion.nav
@@ -35,21 +37,9 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-2 group">
-          <span
-            className="font-mono text-sm"
-            style={{ color: '#3b82f6' }}
-          >
-            &lt;
-          </span>
-          <span className="font-semibold text-white tracking-wide">
-            José Ángel
-          </span>
-          <span
-            className="font-mono text-sm"
-            style={{ color: '#3b82f6' }}
-          >
-            /&gt;
-          </span>
+          <span className="font-mono text-sm" style={{ color: '#3b82f6' }}>&lt;</span>
+          <span className="font-semibold text-white tracking-wide">José Ángel</span>
+          <span className="font-mono text-sm" style={{ color: '#3b82f6' }}>/&gt;</span>
         </a>
 
         {/* Desktop links */}
@@ -60,12 +50,8 @@ export default function Navbar() {
                 href={link.href}
                 className="text-sm font-medium transition-colors duration-200"
                 style={{ color: '#94a3b8' }}
-                onMouseEnter={(e) =>
-                  ((e.target as HTMLElement).style.color = '#e2e8f0')
-                }
-                onMouseLeave={(e) =>
-                  ((e.target as HTMLElement).style.color = '#94a3b8')
-                }
+                onMouseEnter={(e) => ((e.target as HTMLElement).style.color = '#e2e8f0')}
+                onMouseLeave={(e) => ((e.target as HTMLElement).style.color = '#94a3b8')}
               >
                 {link.label}
               </a>
@@ -73,29 +59,54 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* CTA */}
-        <a
-          href="/portfolio/cv.pdf"
-          download="CV_Jose_Angel_Ceballos.pdf"
-          className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
-          style={{
-            background: 'rgba(59,130,246,0.1)',
-            border: '1px solid rgba(59,130,246,0.3)',
-            color: '#60a5fa',
-          }}
-          onMouseEnter={(e) => {
-            const el = e.currentTarget
-            el.style.background = 'rgba(59,130,246,0.2)'
-            el.style.borderColor = 'rgba(59,130,246,0.6)'
-          }}
-          onMouseLeave={(e) => {
-            const el = e.currentTarget
-            el.style.background = 'rgba(59,130,246,0.1)'
-            el.style.borderColor = 'rgba(59,130,246,0.3)'
-          }}
-        >
-          Descargar CV
-        </a>
+        <div className="hidden md:flex items-center gap-3">
+          {/* Lang toggle */}
+          <button
+            onClick={toggleLang}
+            className="text-xs font-mono px-2 py-1 rounded transition-all duration-200"
+            style={{
+              color: '#475569',
+              border: '1px solid rgba(71,85,105,0.3)',
+            }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget
+              el.style.color = '#60a5fa'
+              el.style.borderColor = 'rgba(59,130,246,0.4)'
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget
+              el.style.color = '#475569'
+              el.style.borderColor = 'rgba(71,85,105,0.3)'
+            }}
+            aria-label="Toggle language"
+          >
+            {lang === 'es' ? 'EN' : 'ES'}
+          </button>
+
+          {/* Download CV */}
+          <a
+            href="/portfolio/cv.pdf"
+            download="CV_Jose_Angel_Ceballos.pdf"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+            style={{
+              background: 'rgba(59,130,246,0.1)',
+              border: '1px solid rgba(59,130,246,0.3)',
+              color: '#60a5fa',
+            }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget
+              el.style.background = 'rgba(59,130,246,0.2)'
+              el.style.borderColor = 'rgba(59,130,246,0.6)'
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget
+              el.style.background = 'rgba(59,130,246,0.1)'
+              el.style.borderColor = 'rgba(59,130,246,0.3)'
+            }}
+          >
+            {tr.nav.downloadCV}
+          </a>
+        </div>
 
         {/* Mobile burger */}
         <button
@@ -128,6 +139,24 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            <div className="flex items-center gap-3 pt-3 border-t" style={{ borderColor: 'rgba(59,130,246,0.1)' }}>
+              <button
+                onClick={toggleLang}
+                className="text-xs font-mono px-2 py-1 rounded"
+                style={{ color: '#475569', border: '1px solid rgba(71,85,105,0.3)' }}
+              >
+                {lang === 'es' ? 'EN' : 'ES'}
+              </button>
+              <a
+                href="/portfolio/cv.pdf"
+                download="CV_Jose_Angel_Ceballos.pdf"
+                className="text-sm"
+                style={{ color: '#60a5fa' }}
+                onClick={() => setOpen(false)}
+              >
+                {tr.nav.downloadCV}
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
