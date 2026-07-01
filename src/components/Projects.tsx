@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ExternalLink, Hammer } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import { GithubIcon } from './SocialIcons'
 import { useLanguage } from '../context/LanguageContext'
 
@@ -9,9 +9,8 @@ const projectMeta = [
   { tags: ['Python', 'GitHub Actions', 'Docker', 'ruff', 'pytest-cov'], github: 'https://github.com/Euchelu/devops-toolkit-', demo: null },
   { tags: ['Java', 'JUnit 5', 'JavaScript', 'Jest', 'GitHub Actions'], github: 'https://github.com/Euchelu/testing-showcase', demo: null },
   { tags: ['Python', 'FastAPI', 'JWT', 'bcrypt', 'SQLAlchemy', 'Docker'], github: 'https://github.com/Euchelu/auth-api', demo: null },
+  { tags: ['React', 'TypeScript', 'Recharts', 'FastAPI', 'Tailwind'], github: 'https://github.com/Euchelu/system-monitor', demo: 'https://euchelu.github.io/system-monitor/' },
 ]
-
-const comingTags = [['React', 'TypeScript', 'Tailwind']]
 
 export default function Projects() {
   const { tr } = useLanguage()
@@ -73,25 +72,6 @@ export default function Projects() {
             )
           })}
 
-          {tr.projects.coming.map((item, i) => (
-            <motion.div key={item.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: (i + tr.projects.items.length) * 0.1 }}
-              className="p-6 rounded-2xl" style={{ background: 'rgba(10,22,40,0.3)', border: '1px dashed rgba(59,130,246,0.15)' }}>
-              <div className="flex items-center gap-2 mb-3">
-                <Hammer size={14} style={{ color: '#334155' }} />
-                <span className="text-xs font-mono" style={{ color: '#334155' }}>{tr.projects.wip}</span>
-              </div>
-              <h3 className="text-base font-medium mb-3" style={{ color: '#475569' }}>{item.title}</h3>
-              <div className="flex flex-wrap gap-2">
-                {comingTags[i]?.map((tag) => (
-                  <span key={tag} className="text-xs px-2 py-0.5 rounded font-mono"
-                    style={{ background: 'rgba(15,32,64,0.5)', color: '#334155', border: '1px solid rgba(71,85,105,0.1)' }}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
         </div>
 
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center">

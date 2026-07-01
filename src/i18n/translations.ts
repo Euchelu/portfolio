@@ -74,8 +74,9 @@ export const t = {
         { title: 'DevOps Toolkit', desc: 'Monitor de salud del sistema con pipeline CI/CD de 4 etapas: lint → test → Docker build → deploy. Automatizado con GitHub Actions en cada push.' },
         { title: 'Testing Showcase', desc: 'Suite de tests multi-lenguaje con JUnit 5 (Java) y Jest (JavaScript). 52 tests en total con 97% de cobertura en JS. Ambos suites corren en paralelo en GitHub Actions.' },
         { title: 'Auth API — JWT', desc: 'API de autenticación completa con registro, login, refresh y logout. Tokens de acceso (30min) y refresh (7 días) con sesión única por usuario. 18 tests de integración.' },
+        { title: 'System Health Monitor', desc: 'Dashboard React en tiempo real que visualiza CPU, RAM y disco consumiendo una FastAPI. Polling cada 3s, gráfica de historial con Recharts y modo demo automático cuando la API no está disponible.' },
       ],
-      coming: [{ title: 'Frontend React completo' }],
+      coming: [],
     },
     interests: {
       tag: '05. más sobre mí',
@@ -173,8 +174,9 @@ export const t = {
         { title: 'DevOps Toolkit', desc: 'System health monitor with a 4-stage CI/CD pipeline: lint → test → Docker build → deploy. Automated with GitHub Actions on every push.' },
         { title: 'Testing Showcase', desc: 'Multi-language test suite with JUnit 5 (Java) and Jest (JavaScript). 52 tests total with 97% JS coverage. Both suites run in parallel on GitHub Actions.' },
         { title: 'Auth API — JWT', desc: 'Complete authentication API with register, login, refresh and logout. Access tokens (30min) and refresh tokens (7 days) with single active session per user. 18 integration tests.' },
+        { title: 'System Health Monitor', desc: 'Real-time React dashboard visualising CPU, RAM and disk metrics from a FastAPI backend. 3-second polling, history chart with Recharts and automatic demo mode when the API is offline.' },
       ],
-      coming: [{ title: 'Full React Frontend' }],
+      coming: [],
     },
     interests: {
       tag: '05. more about me',
