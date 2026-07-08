@@ -1,14 +1,15 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useState } from 'react'
 import type { ReactNode } from 'react'
 import { t, type Lang } from '../i18n/translations'
 
-interface LanguageContextType {
+export interface LanguageContextType {
   lang: Lang
   toggleLang: () => void
-  tr: typeof t['es']
+  tr: (typeof t)['es']
 }
 
-const LanguageContext = createContext<LanguageContextType | null>(null)
+// eslint-disable-next-line react-refresh/only-export-components
+export const LanguageContext = createContext<LanguageContextType | null>(null)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>('es')
@@ -20,10 +21,4 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       {children}
     </LanguageContext.Provider>
   )
-}
-
-export function useLanguage() {
-  const ctx = useContext(LanguageContext)
-  if (!ctx) throw new Error('useLanguage must be used inside LanguageProvider')
-  return ctx
 }

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Code2, Layers, TestTube2, CloudCog } from 'lucide-react'
-import { useLanguage } from '../context/LanguageContext'
+import { useLanguage } from '../hooks/useLanguage'
 
 const traitIcons = [Code2, Layers, CloudCog, TestTube2]
 

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Mail } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from './SocialIcons'
-import { useLanguage } from '../context/LanguageContext'
+import { useLanguage } from '../hooks/useLanguage'
 
 const EMAIL = 'euchelu@gmail.com'
 

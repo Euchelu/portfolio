@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Music, Dumbbell, BookOpen, Gamepad2, Camera, Globe } from 'lucide-react'
-import { useLanguage } from '../context/LanguageContext'
+import { useLanguage } from '../hooks/useLanguage'
 
 const icons = [Music, Dumbbell, BookOpen, Gamepad2, Camera, Globe]
 
