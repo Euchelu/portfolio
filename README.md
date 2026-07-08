@@ -98,7 +98,9 @@ El proyecto quedará disponible en `http://localhost:5173`.
 | `npm run dev` | Servidor de desarrollo con hot reload |
 | `npm run build` | Compila TypeScript y genera el build de producción |
 | `npm run preview` | Sirve localmente el build de producción |
-| `npm run lint` | Analiza el código con oxlint |
+| `npm run lint` | Analiza el código con oxlint (linting *type-aware*) |
+| `npm test` | Ejecuta la suite de tests con Vitest |
+| `npm run test:watch` | Vitest en modo watch |
 
 ---
 
