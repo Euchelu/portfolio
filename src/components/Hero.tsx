@@ -2,7 +2,7 @@ import { useReducedMotion, motion } from 'framer-motion'
 import { ArrowDown, Mail } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from './SocialIcons'
 import { useTypingEffect } from '../hooks/useTypingEffect'
-import { useLanguage } from '../context/LanguageContext'
+import { useLanguage } from '../hooks/useLanguage'
 
 export default function Hero() {
   const shouldReduceMotion = useReducedMotion()

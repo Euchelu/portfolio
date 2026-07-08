@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { useLanguage } from '../context/LanguageContext'
+import { useLanguage } from '../hooks/useLanguage'
 
 const typeColors: Record<string, string> = {
   trabajo: '#3b82f6', work: '#3b82f6',

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 import { GithubIcon } from './SocialIcons'
-import { useLanguage } from '../context/LanguageContext'
+import { useLanguage } from '../hooks/useLanguage'
 
 const projectMeta = [
   { tags: ['Python', 'FastAPI', 'PostgreSQL', 'Docker', 'Pytest'], github: 'https://github.com/Euchelu/-task-manager-api', demo: null },
