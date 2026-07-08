@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 — Redirigiendo…</title>
+    <!--
+      El portfolio es una SPA de scroll servida en /portfolio/.
+      Cualquier ruta desconocida redirige a la home para no romper
+      enlaces con hash o rutas antiguas indexadas.
+    -->
+    <script>
+      window.location.replace('/portfolio/')
+    </script>
+    <meta http-equiv="refresh" content="0; url=/portfolio/" />
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #020b18;
+        color: #94a3b8;
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+      a { color: #60a5fa; }
+    </style>
+  </head>
+  <body>
+    <p>Redirigiendo… Si no ocurre, <a href="/portfolio/">vuelve al inicio</a>.</p>
+  </body>
+</html>
