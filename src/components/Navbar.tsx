@@ -113,6 +113,8 @@ export default function Navbar() {
           className="md:hidden p-2"
           style={{ color: '#94a3b8' }}
           onClick={() => setOpen(!open)}
+          aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={open}
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
