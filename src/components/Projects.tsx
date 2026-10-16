@@ -4,12 +4,12 @@ import { GithubIcon } from './SocialIcons'
 import { useLanguage } from '../hooks/useLanguage'
 
 const projectMeta = [
-  { tags: ['Python', 'FastAPI', 'PostgreSQL', 'Docker', 'Pytest'], github: 'https://github.com/Euchelu/-task-manager-api', demo: null },
-  { tags: ['Python', 'pandas', 'PostgreSQL', 'Docker', 'Pytest'], github: 'https://github.com/Euchelu/data-pipeline', demo: null },
-  { tags: ['Python', 'GitHub Actions', 'Docker', 'ruff', 'pytest-cov'], github: 'https://github.com/Euchelu/devops-toolkit-', demo: null },
+  { tags: ['Python', 'FastAPI', 'PostgreSQL', 'Docker', 'Pytest'], github: 'https://github.com/Euchelu/task-manager-api', demo: null },
+  { tags: ['Python', 'pandas', 'PostgreSQL', 'Docker', 'Pytest'], github: 'https://github.com/Euchelu/weather-etl-pipeline', demo: null },
+  { tags: ['Python', 'GitHub Actions', 'Docker', 'ruff', 'pytest-cov'], github: 'https://github.com/Euchelu/devops-toolkit', demo: null },
   { tags: ['Java', 'JUnit 5', 'JavaScript', 'Jest', 'GitHub Actions'], github: 'https://github.com/Euchelu/testing-showcase', demo: null },
   { tags: ['Python', 'FastAPI', 'JWT', 'bcrypt', 'SQLAlchemy', 'Docker'], github: 'https://github.com/Euchelu/auth-api', demo: null },
-  { tags: ['React', 'TypeScript', 'Recharts', 'FastAPI', 'Tailwind'], github: 'https://github.com/Euchelu/system-monitor', demo: 'https://euchelu.github.io/system-monitor/' },
+  { tags: ['React', 'TypeScript', 'Recharts', 'FastAPI', 'Tailwind'], github: 'https://github.com/Euchelu/system-health-monitor', demo: null },
 ]
 
 export default function Projects() {
