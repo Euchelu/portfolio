@@ -21,7 +21,6 @@ Ejemplo:
 - **Totalmente responsive**, con menú mobile animado
 - **Timeline de experiencia** vertical con eventos codificados por color
 - **Grid de proyectos** con enlaces directos a GitHub
-- **Descarga de CV en PDF** desde un botón dedicado
 - **Despliegue automatizado** vía GitHub Actions a GitHub Pages
 
 ---
@@ -48,7 +47,6 @@ SVGs inline se usan para los iconos de GitHub y LinkedIn, ya que fueron eliminad
 portfolio/
 ├── .github/workflows/     # Workflow de GitHub Actions (deploy-pages)
 ├── public/
-│   └── cv.pdf             # CV descargable
 ├── src/
 │   ├── components/
 │   │   ├── Navbar.tsx         # Navegación fija, transparente al hacer scroll

@@ -94,13 +94,11 @@ portfolio/
 ├─ .github/workflows/
 │  └─ deploy.yml                  # GitHub Actions → Pages
 ├─ public/
-│  ├─ cv.pdf                      # CV español
-│  ├─ cv_en.pdf                   # CV inglés
 │  ├─ favicon.svg
 │  └─ icons.svg
 ├─ src/
 │  ├─ components/
-│  │  ├─ Navbar.tsx               # Nav fija + menú mobile + toggle idioma + descarga CV
+│  │  ├─ Navbar.tsx               # Nav fija + menú mobile + toggle idioma
 │  │  ├─ Hero.tsx                 # Typing effect + links sociales + orbes
 │  │  ├─ About.tsx                # Bio + traits + stats
 │  │  ├─ Skills.tsx               # Grid de categorías de habilidades
@@ -201,15 +199,6 @@ Cada componente hace:
 ```typescript
 const { tr, lang, toggleLang } = useLanguage()
 // Luego: tr.seccion.clave
-```
-
-### 4. Efecto secundario: CV bilingüe
-
-En `Navbar.tsx` y `Contact.tsx`, el enlace de descarga reacciona al idioma:
-
-```typescript
-href={lang === 'es' ? '/portfolio/cv.pdf' : '/portfolio/cv_en.pdf'}
-download={lang === 'es' ? 'CV_Jose_Angel_Ceballos_ES.pdf' : 'CV_Jose_Angel_Ceballos_EN.pdf'}
 ```
 
 ---
@@ -373,8 +362,8 @@ Ambiente: `jsdom`, globals habilitados, `@testing-library/react` para renderizad
 Por qué: El sitio se sirve en un subdirectorio, no en la raíz. Vite reescribe las rutas de todos los assets (CSS, JS, imágenes) con este prefijo. Los enlaces internos y externos se deben construir respetando esto:
 
 ```typescript
-// En Navbar.tsx:
-href={lang === 'es' ? '/portfolio/cv.pdf' : '/portfolio/cv_en.pdf'}
+// vite.config.ts
+base: '/portfolio/'
 ```
 
 Sin este `base`, los assets fallarían a cargar desde `/src/main.tsx` en el cliente.
