@@ -82,6 +82,30 @@ export default function Navbar() {
           >
             {lang === 'es' ? 'EN' : 'ES'}
           </button>
+
+          {/* Download CV */}
+          <a
+            href={lang === 'es' ? '/portfolio/cv.pdf' : '/portfolio/cv_en.pdf'}
+            download={lang === 'es' ? 'CV_Jose_Angel_Ceballos_ES.pdf' : 'CV_Jose_Angel_Ceballos_EN.pdf'}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+            style={{
+              background: 'rgba(59,130,246,0.1)',
+              border: '1px solid rgba(59,130,246,0.3)',
+              color: '#60a5fa',
+            }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget
+              el.style.background = 'rgba(59,130,246,0.2)'
+              el.style.borderColor = 'rgba(59,130,246,0.6)'
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget
+              el.style.background = 'rgba(59,130,246,0.1)'
+              el.style.borderColor = 'rgba(59,130,246,0.3)'
+            }}
+          >
+            {tr.nav.downloadCV}
+          </a>
         </div>
 
         {/* Mobile burger */}
@@ -125,6 +149,15 @@ export default function Navbar() {
               >
                 {lang === 'es' ? 'EN' : 'ES'}
               </button>
+              <a
+                href={lang === 'es' ? '/portfolio/cv.pdf' : '/portfolio/cv_en.pdf'}
+                download={lang === 'es' ? 'CV_Jose_Angel_Ceballos_ES.pdf' : 'CV_Jose_Angel_Ceballos_EN.pdf'}
+                className="text-sm"
+                style={{ color: '#60a5fa' }}
+                onClick={() => setOpen(false)}
+              >
+                {tr.nav.downloadCV}
+              </a>
             </div>
           </motion.div>
         )}
