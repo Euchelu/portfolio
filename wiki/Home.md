@@ -30,6 +30,8 @@ portfolio/
 │   ├── i18n/           # Traducciones ES + EN
 │   └── App.tsx
 ├── public/
+│   ├── cv.pdf
+│   └── cv_en.pdf
 ├── wiki/               # Esta documentación
 ├── .github/workflows/  # Deploy automático
 ├── vite.config.ts

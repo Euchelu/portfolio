@@ -8,6 +8,7 @@ export const t = {
       experience: 'Experiencia',
       projects: 'Proyectos',
       contact: 'Contacto',
+      downloadCV: 'Descargar CV',
     },
     hero: {
       badge: 'Disponible para nuevas oportunidades',
@@ -107,6 +108,7 @@ export const t = {
       experience: 'Experience',
       projects: 'Projects',
       contact: 'Contact',
+      downloadCV: 'Download CV',
     },
     hero: {
       badge: 'Open to new opportunities',

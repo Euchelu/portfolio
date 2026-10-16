@@ -46,6 +46,9 @@ Editar `src/i18n/translations.ts` — tanto la clave `es` como `en`.
 En `src/components/Projects.tsx` añadir en `projectMeta` el objeto con `tags`, `github` y `demo`.
 En `src/i18n/translations.ts` añadir la entrada en `projects.items` para ES e EN.
 
+### Cambiar el CV
+Reemplazar `public/cv.pdf` y `public/cv_en.pdf` con los nuevos archivos (mismo nombre).
+
 ## Tests
 
 Los tests viven junto al código que prueban:
