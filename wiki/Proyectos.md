@@ -5,7 +5,7 @@ Descripción técnica de cada proyecto showcaseado en la sección Projects.
 ---
 
 ## 1. Task Manager API
-**Repo:** https://github.com/Euchelu/-task-manager-api
+**Repo:** https://github.com/Euchelu/task-manager-api
 
 API REST de gestión de tareas construida con FastAPI y SQLAlchemy.
 
@@ -22,7 +22,7 @@ API REST de gestión de tareas construida con FastAPI y SQLAlchemy.
 ---
 
 ## 2. Weather ETL Pipeline
-**Repo:** https://github.com/Euchelu/data-pipeline
+**Repo:** https://github.com/Euchelu/weather-etl-pipeline
 
 Pipeline ETL que extrae datos meteorológicos de Open-Meteo API.
 
@@ -38,7 +38,7 @@ Pipeline ETL que extrae datos meteorológicos de Open-Meteo API.
 ---
 
 ## 3. DevOps Toolkit
-**Repo:** https://github.com/Euchelu/devops-toolkit-
+**Repo:** https://github.com/Euchelu/devops-toolkit
 
 Monitor de salud del sistema con pipeline CI/CD de 4 etapas.
 
