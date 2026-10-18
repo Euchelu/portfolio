@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
-import { Music, Dumbbell, BookOpen, Gamepad2, Camera, Globe } from 'lucide-react'
+import { ShieldCheck, Nfc, Drone, Printer, Gamepad2, Cpu } from 'lucide-react'
 import { useLanguage } from '../hooks/useLanguage'
 
-const icons = [Music, Dumbbell, BookOpen, Gamepad2, Camera, Globe]
+const icons = [ShieldCheck, Nfc, Drone, Printer, Gamepad2, Cpu]
 
 export default function Interests() {
   const { tr } = useLanguage()
