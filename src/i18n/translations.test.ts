@@ -26,3 +26,20 @@ describe('translations', () => {
     expect(t.en.nav.about).toBe('About')
   })
 })
+
+describe('translations content', () => {
+  const placeholders = ['Empresa / Proyecto', 'Nombre del Bootcamp', 'Descripción de tu', 'Company / Project', 'Bootcamp Name', 'Description of your']
+
+  it.each(['es', 'en'] as const)('contains no template placeholder text (%s)', (lang) => {
+    const text = JSON.stringify(t[lang])
+    for (const placeholder of placeholders) {
+      expect(text).not.toContain(placeholder)
+    }
+  })
+
+  it('has the same number of experience events, projects and interests in both languages', () => {
+    expect(t.en.experience.events.length).toBe(t.es.experience.events.length)
+    expect(t.en.projects.items.length).toBe(t.es.projects.items.length)
+    expect(t.en.interests.items.length).toBe(t.es.interests.items.length)
+  })
+})
